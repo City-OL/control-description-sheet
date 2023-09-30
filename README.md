@@ -1,5 +1,7 @@
 # Control Description Sheet
 
+[![npm (scoped)](https://img.shields.io/npm/v/@city-ol/control-description-sheet)](https://img.shields.io/npm/v/@city-ol/control-description-sheet)
+
 A web component that allows you to easily create control description sheets for orienteering courses. Uses vector graphics. Check out [this demo](https://city-ol.github.io/control-description-sheet/demo.html) for an overview of the functionality.
 
 <img src="example.png" width="225">
