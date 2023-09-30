@@ -6,7 +6,18 @@ A web component that allows you to easily create control description sheets for 
 
 ## Installation
 
-TODO: Describe the installation process
+Either install the package using npm
+
+    npm i @city-ol/control-description-sheet
+
+or include the script:
+
+```html
+<script
+  type="module"
+  src="https://unpkg.com/@city-ol/control-description-sheet/control-description-sheet.js"
+></script>
+```
 
 ## Usage
 
