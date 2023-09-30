@@ -352,6 +352,7 @@ sheetTemplate.innerHTML = `
       border-width: 1px;
       border-collapse: separate;
       font-size: calc(var(--cell-size) / 1.5);
+      color: var(--primary);
     }
     table {
       font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
@@ -366,7 +367,7 @@ sheetTemplate.innerHTML = `
       text-align: center;
     }
     td { width: var(--cell-size); }
-    tr:nth-of-type(3n+1) > td { border-bottom-width: 3px; }
+    tr:nth-of-type(3n+1):not(:last-of-type) > td { border-bottom-width: 3px; }
     tr > td:nth-of-type(3n) { border-right-width: 3px; }
     tr:last-of-type > td { border-top-width: 3px; }
     tr:nth-last-of-type(2) { border-bottom-width: 3px; }
@@ -422,8 +423,8 @@ class ControlDescriptionSheet extends HTMLElement {
     shadow.innerHTML = `
       <style>
         :host { 
-          --primary: ${this.style.color || "black"}; 
-          --cell-size: calc(${this.style.width || "16em"} / 8);
+          --primary: ${this.style.color || "#b30e8e"}; 
+          --cell-size: calc(${this.style.width || "12em"} / 8);
           --border-radius: ${this.style.borderRadius}
         }
       </style>`;
