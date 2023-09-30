@@ -416,7 +416,47 @@ function createIcon(name) {
   return "";
 }
 
-class ControlDescriptionSheet extends HTMLElement {
+export class ControlDescriptionSheet extends HTMLElement {
+  get title() {
+    return this.getAttribute("title");
+  }
+
+  set title(title) {
+    this.setAttribute("title", title);
+  }
+
+  get course() {
+    return this.getAttribute("course");
+  }
+
+  set course(course) {
+    this.setAttribute("course", course);
+  }
+
+  get distance() {
+    return this.getAttribute("distance");
+  }
+
+  set distance(distance) {
+    this.setAttribute("distance", distance);
+  }
+
+  get height() {
+    return this.getAttribute("height");
+  }
+
+  set height(height) {
+    this.setAttribute("height", height);
+  }
+
+  get finalDistance() {
+    return this.getAttribute("finalDistance");
+  }
+
+  set finalDistance(finalDistance) {
+    this.setAttribute("finalDistance", finalDistance);
+  }
+
   constructor() {
     super();
     const shadow = this.attachShadow({ mode: "open" });
@@ -430,9 +470,10 @@ class ControlDescriptionSheet extends HTMLElement {
       </style>`;
     shadow.append(sheetTemplate.content.cloneNode(true));
 
-    for (const attribute of ["title", "course", "distance", "height"])
-      shadow.querySelector(`[data-${attribute}]`).innerHTML =
-        this.getAttribute(attribute) ?? "";
+    shadow.querySelector(`[data-title]`).innerHTML = this.title ?? "";
+    shadow.querySelector(`[data-course]`).innerHTML = this.course ?? "";
+    shadow.querySelector(`[data-distance]`).innerHTML = this.distance ?? "";
+    shadow.querySelector(`[data-height]`).innerHTML = this.height ?? "";
 
     for (const [index, control] of [...this.children].entries()) {
       const tr = document.createElement("tr");
@@ -456,7 +497,7 @@ class ControlDescriptionSheet extends HTMLElement {
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
           ${createIcon("control_point_right_arrow")}
           <div style="display: flex; flex-direction: column; justify-content: center;">${
-            this.getAttribute("finalDistance") ?? ""
+            this.finalDistance ?? ""
           }</div>
           ${createIcon("finish_left_arrow")}
         </div>
@@ -465,11 +506,14 @@ class ControlDescriptionSheet extends HTMLElement {
   }
 }
 
-class ControlDescription extends HTMLElement {
+export class ControlDescription extends HTMLElement {
   constructor() {
     super();
   }
 }
 
-customElements.define("control-description-sheet", ControlDescriptionSheet);
-customElements.define("control-description", ControlDescription);
+if (!customElements.get("control-description-sheet"))
+  customElements.define("control-description-sheet", ControlDescriptionSheet);
+
+if (!customElements.get("control-description"))
+  customElements.define("control-description", ControlDescription);
