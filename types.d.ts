@@ -14,6 +14,7 @@ export class ControlDescription extends HTMLElement {
   dimension?: string;
   location?: string;
   other?: string;
+  highlighted?: boolean;
 }
 
 declare global {

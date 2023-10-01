@@ -70,6 +70,10 @@
           "description": "Color of the text, borders and symbols"
         },
         {
+          "name": "--secondary",
+          "description": "Color used to highlight a control"
+        },
+        {
           "name": "--width",
           "description": "Width of the control sheet"
         },
@@ -118,6 +122,11 @@
           "name": "other",
           "description": "Other informaion about the control",
           "type": "string"
+        },
+        {
+          "name": "highlighted",
+          "description": "Highlight control in sheet",
+          "type": "boolean"
         }
       ],
       "properties": [
@@ -162,6 +171,12 @@
           "attribute": "other",
           "description": "Other informaion about the control",
           "type": "string"
+        },
+        {
+          "name": "highlighted",
+          "attribute": "highlighted",
+          "description": "Highlight control in sheet",
+          "type": "boolean"
         }
       ]
     }

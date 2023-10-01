@@ -392,6 +392,9 @@ sheetTemplate.innerHTML = `
     }
     path[data-stroke] { stroke: var(--primary); }
     path[data-fill] { fill: var(--primary); }
+    .highlighted {
+      background-color: var(--secondary);
+    }
   </style>
   
   <table>
@@ -426,6 +429,7 @@ function createIcon(name) {
  * @attr {string} [elevation] - Total elevation gain
  * @attr {string} [finalDistance] - Distance to the final control
  * @cssprop --primary - Color of the text, borders and symbols
+ * @cssprop --secondary - Color used to highlight a control
  * @cssprop --width - Width of the control sheet
  * @cssprop --border-radius - Border radius of the outermost border
  */
@@ -477,6 +481,7 @@ export class ControlDescriptionSheet extends HTMLElement {
       <style>
         :host { 
           --primary: #b30e8e;
+          --secondary: rgba(0, 14, 239, 0.17);
           --width: 12em;
           --cell-size: calc(var(--width) / 8);
           --border-radius: 0px;
@@ -491,6 +496,12 @@ export class ControlDescriptionSheet extends HTMLElement {
 
     for (const [index, control] of [...this.children].entries()) {
       const tr = document.createElement("tr");
+      console.log(control.getAttribute("highlighted"));
+      if (
+        control.getAttribute("highlighted") === "" ||
+        control.getAttribute("highlighted") === "true"
+      )
+        tr.classList.add("highlighted");
       tr.innerHTML = `
         <td><strong>${
           index == 0 ? createIcon("start_location") : index
@@ -531,6 +542,7 @@ export class ControlDescriptionSheet extends HTMLElement {
  * @attr {string} [dimensions] - Control dimensions
  * @attr {string} [location] - Control location
  * @attr {string} [other] - Other informaion about the control
+ * @attr {boolean} [highlighted] - Highlight control in sheet
  */
 export class ControlDescription extends HTMLElement {
   get code() {
@@ -587,6 +599,14 @@ export class ControlDescription extends HTMLElement {
 
   set other(other) {
     this.setAttribute("other", other);
+  }
+
+  get highlighted() {
+    return this.getAttribute("highlighted");
+  }
+
+  set highlighted(highlighted) {
+    this.setAttribute("highlighted", highlighted);
   }
 
   constructor() {
