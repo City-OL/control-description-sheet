@@ -62,10 +62,20 @@
         </control-description-sheet>
       </li>
       <li>
-        <p>Customizing with CSS (only these properties are supported)</p>
+        <p>Customizing with CSS (only these variables are supported)</p>
         <p>
-          <code>style="color: #b30e8e; width: 200px; border-radius: 5px"</code>
+          <code
+            >control-description-sheet { --primary: black; --width: 120px;
+            --border-radius: 5px; }</code
+          >
         </p>
+        <style>
+          control-description-sheet[title="Brugg Mittellang"] {
+            --primary: black;
+            --width: 120px;
+            --border-radius: 5px;
+          }
+        </style>
         <control-description-sheet
           title="Brugg Mittellang"
           course="mittel"
