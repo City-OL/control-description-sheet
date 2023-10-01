@@ -1,6 +1,6 @@
 {
   "name": "@city-ol/control-description-sheet",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A web component to easily create control description sheets for orienteering courses.",
   "main": "control-description-sheet.js",
   "type": "module",

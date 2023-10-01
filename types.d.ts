@@ -1,4 +1,4 @@
-export default class ControlDescriptionSheet extends HTMLElement {
+export class ControlDescriptionSheet extends HTMLElement {
   title: string;
   course?: string;
   distance?: string;
@@ -6,7 +6,7 @@ export default class ControlDescriptionSheet extends HTMLElement {
   finalDistance?: string;
 }
 
-export default class ControlDescription extends HTMLElement {
+export class ControlDescription extends HTMLElement {
   code?: string;
   which?: string;
   feature?: string;
