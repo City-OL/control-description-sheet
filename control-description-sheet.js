@@ -401,7 +401,7 @@ sheetTemplate.innerHTML = `
     <tr>
       <th colspan="3" data-course></th>
       <th colspan="3" data-distance></th>
-      <th colspan="2" data-height></th>
+      <th colspan="2" data-elevation></th>
     </tr>
   </table>
 `;
@@ -416,6 +416,19 @@ function createIcon(name) {
   return "";
 }
 
+/**
+ * A web component to build a control description sheet.
+ * @element control-description-sheet
+ *
+ * @attr {string} title - Title of the course
+ * @attr {string} [course] - Course name or number
+ * @attr {string} [distance] - Total distance of the course
+ * @attr {string} [elevation] - Total elevation gain
+ * @attr {string} [finalDistance] - Distance to the final control
+ * @cssprop --primary - Color of the text, borders and symbols
+ * @cssprop --width - Width of the control sheet
+ * @cssprop --border-radius - Border radius of the outermost border
+ */
 export class ControlDescriptionSheet extends HTMLElement {
   get title() {
     return this.getAttribute("title");
@@ -441,12 +454,12 @@ export class ControlDescriptionSheet extends HTMLElement {
     this.setAttribute("distance", distance);
   }
 
-  get height() {
-    return this.getAttribute("height");
+  get elevation() {
+    return this.getAttribute("elevation");
   }
 
-  set height(height) {
-    this.setAttribute("height", height);
+  set elevation(elevation) {
+    this.setAttribute("elevation", elevation);
   }
 
   get finalDistance() {
@@ -463,9 +476,10 @@ export class ControlDescriptionSheet extends HTMLElement {
     shadow.innerHTML = `
       <style>
         :host { 
-          --primary: ${this.style.color || "#b30e8e"}; 
-          --cell-size: calc(${this.style.width || "12em"} / 8);
-          --border-radius: ${this.style.borderRadius}
+          --primary: #b30e8e;
+          --width: 12em;
+          --cell-size: calc(var(--width) / 8);
+          --border-radius: 0px;
         }
       </style>`;
     shadow.append(sheetTemplate.content.cloneNode(true));
@@ -473,7 +487,7 @@ export class ControlDescriptionSheet extends HTMLElement {
     shadow.querySelector(`[data-title]`).innerHTML = this.title ?? "";
     shadow.querySelector(`[data-course]`).innerHTML = this.course ?? "";
     shadow.querySelector(`[data-distance]`).innerHTML = this.distance ?? "";
-    shadow.querySelector(`[data-height]`).innerHTML = this.height ?? "";
+    shadow.querySelector(`[data-elevation]`).innerHTML = this.elevation ?? "";
 
     for (const [index, control] of [...this.children].entries()) {
       const tr = document.createElement("tr");
@@ -506,7 +520,75 @@ export class ControlDescriptionSheet extends HTMLElement {
   }
 }
 
+/**
+ * An element representing a control.
+ * @element control-description
+ *
+ * @attr {string} [code] - Control code
+ * @attr {string} [which] - Which feature
+ * @attr {string} [feature] - Control feature
+ * @attr {string} [appearance] - Control appearance
+ * @attr {string} [dimensions] - Control dimensions
+ * @attr {string} [location] - Control location
+ * @attr {string} [other] - Other informaion about the control
+ */
 export class ControlDescription extends HTMLElement {
+  get code() {
+    return this.getAttribute("code");
+  }
+
+  set code(code) {
+    this.setAttribute("code", code);
+  }
+
+  get which() {
+    return this.getAttribute("which");
+  }
+
+  set which(which) {
+    this.setAttribute("which", which);
+  }
+
+  get feature() {
+    return this.getAttribute("feature");
+  }
+
+  set feature(feature) {
+    this.setAttribute("feature", feature);
+  }
+
+  get appearance() {
+    return this.getAttribute("appearance");
+  }
+
+  set appearance(appearance) {
+    this.setAttribute("appearance", appearance);
+  }
+
+  get dimensions() {
+    return this.getAttribute("dimensions");
+  }
+
+  set dimensions(dimensions) {
+    this.setAttribute("dimensions", dimensions);
+  }
+
+  get location() {
+    return this.getAttribute("location");
+  }
+
+  set location(location) {
+    this.setAttribute("location", location);
+  }
+
+  get other() {
+    return this.getAttribute("other");
+  }
+
+  set other(other) {
+    this.setAttribute("other", other);
+  }
+
   constructor() {
     super();
   }
