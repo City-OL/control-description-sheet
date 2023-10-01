@@ -1,10 +1,11 @@
 {
   "name": "@city-ol/control-description-sheet",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A web component to easily create control description sheets for orienteering courses.",
   "main": "control-description-sheet.js",
   "type": "module",
   "module": "control-description-sheet.js",
+  "types": "types.d.ts",
   "customElements": "custom-elements.json",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
