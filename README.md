@@ -25,7 +25,7 @@ or include the script:
 
 This web component is made up of two distinct elements
 
-- The `<control-description-sheet>` element, which acts as the parent element and is given the information shown in the header and footer of the sheet as its attributes, i.e. the title (`title`), course name / number (`course`), total distance (`distance`), total elevation gain (`height`) and the distance to the final control (`finalDistance`).
+- The `<control-description-sheet>` element, which acts as the parent element and is given the information shown in the header and footer of the sheet as its attributes, i.e. the title (`title`), course name / number (`course`), total distance (`distance`), total elevation gain (`elevation`) and the distance to the final control (`finalDistance`).
 
 - Each control then corresponds to a `<control-description>` element. The control code must be passed as an attribute (`code`) and the control number is computed automatically. The subsequent columns can be filled with addtional information by specifying the attributes `which`, `feature`, `appearance`, `dimensions`, `location` and `other`. Valid values for these attributes are the keys of the `SYMBOLS` object inside the [`control-description-sheet.js`](control-description-sheet.js) file. These symbols were taken from the [OpenOrienteering Mapper](https://github.com/OpenOrienteering/mapper) software.
 
@@ -70,16 +70,14 @@ The control sheet from the example from above can thus be created as follows:
 
 ### Styling
 
-The web component uses a shadow dom and should thus not be affected by the CSS on your website. Some basic styling can be made on the `<control-description-sheet>` element, which also affects the `<control-description>` elements. The supported properties are `color` (sets the color of the text, icons and borders), `width` (total width of the sheet) and `border-radius` (only outermost border). Check out [the demo](https://city-ol.github.io/control-description-sheet/demo.html) to see how this looks like.
+The web component uses a shadow dom and should thus not be affected by the CSS on your website. Some basic styling can be made on the `<control-description-sheet>` element, which also affects the `<control-description>` elements. The supported CSS variables are `--primary` (sets the color of the text, icons and borders), `--width` (total width of the sheet) and `--border-radius` (only outermost border). Check out [the demo](https://city-ol.github.io/control-description-sheet/demo.html) to see how this looks like.
 
-```html
-<control-description-sheet
-  title="Brugg Mittellang"
-  course="mittel"
-  distance="2.3&thinsp;km"
-  finalDistance="160&thinsp;m"
-  style="color: black; width: 140px; border-radius: 5px"
-></control-description-sheet>
+```css
+control-description-sheet {
+  --primary: black;
+  --width: 120px;
+  --border-radius: 5px;
+}
 ```
 
 ## Credits
