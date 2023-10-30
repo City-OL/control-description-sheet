@@ -1,0 +1,55 @@
+{
+  "version": 1.1,
+  "tags": [
+    {
+      "name": "control-description",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "code",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "control-description-sheet",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
+      "name": "course-heading",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "climb",
+          "description": ""
+        },
+        {
+          "name": "length",
+          "description": ""
+        },
+        {
+          "name": "number",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "special-instruction",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    }
+  ]
+}

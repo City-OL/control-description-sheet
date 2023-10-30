@@ -14,11 +14,15 @@ export const config: Config = {
       type: 'docs-readme',
     },
     {
+      type: 'docs-vscode',
+      file: 'vscode-data.json',
+    },
+    {
       type: 'www',
       serviceWorker: null, // disable service workers
     },
   ],
   testing: {
-    browserHeadless: "new",
+    browserHeadless: 'new',
   },
 };
