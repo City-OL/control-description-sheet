@@ -1,0 +1,20 @@
+:host {
+  /* border-top: var(--wide-border-width) solid var(--color);
+  border-bottom: var(--wide-border-width) solid var(--color); */
+  border-bottom-style: solid;
+  border-bottom-color: var(--color);
+  border-bottom-width: 0px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  align-items: center;
+  width: max-content;
+  margin: auto;
+  width: 100%;
+  color: var(--color);
+  font-weight: bold;
+  aspect-ratio: 8;
+  text-align: center;
+}
