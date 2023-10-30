@@ -1,0 +1,18 @@
+:host {
+  --color: #b30e8e;
+  --border-width: 1px;
+  --wide-border-width: calc(var(--border-width) * 3);
+  --outer-border-width: calc(var(--border-width) * 4);
+  --border-radius: 0px;
+  display: grid;
+  border: var(--outer-border-width) solid var(--color);
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: content-box;
+  container-name: sheet;
+  border-radius: var(--border-radius);
+  border-collapse: collapse;
+}
+
+:host:last-child {
+  border-bottom: none;
+}
