@@ -2,13 +2,104 @@
 <html dir="ltr" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
     <title>Stencil Component Starter</title>
 
-    <script type="module" src="/build/control-description-sheet.esm.js"></script>
+    <script
+      type="module"
+      src="/build/control-description-sheet.esm.js"
+    ></script>
     <script nomodule src="/build/control-description-sheet.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/@city-ol/orienteering-icons/lib/orienteering-icon.bundled.js"
+    ></script>
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <control-description-sheet>
+      <course-heading number="kurz" length="1.1&thinsp;km" climb="40&thinsp;m"
+        >Brugg</course-heading
+      >
+      <control-description></control-description>
+      <control-description code="46">
+        <orienteering-icon slot="feature" name="fence"></orienteering-icon>
+      </control-description>
+      <control-description code="51">
+        <orienteering-icon slot="feature" name="crossing"></orienteering-icon>
+      </control-description>
+      <control-description code="52">
+        <orienteering-icon slot="feature" name="crossing"></orienteering-icon>
+        <orienteering-icon slot="location" name="north_end"></orienteering-icon>
+        <orienteering-icon
+          slot="appearance"
+          name="stairway"
+        ></orienteering-icon>
+      </control-description>
+      <control-description code="40">
+        <orienteering-icon
+          slot="feature"
+          name="special_item_o"
+        ></orienteering-icon>
+      </control-description>
+      <special-instruction>
+        <orienteering-icon
+          slot="left"
+          name="control_point_right_arrow"
+        ></orienteering-icon>
+        <orienteering-icon
+          slot="right"
+          name="control_point_left_arrow"
+        ></orienteering-icon>
+        120&thinsp;m
+      </special-instruction>
+      <control-description code="39">
+        <orienteering-icon slot="feature" name="crossing"></orienteering-icon>
+      </control-description>
+      <control-description
+        code="38"
+        style="background-color: hsla(84, 100%, 59%, 0.4)"
+      >
+        <orienteering-icon slot="feature" name="building"></orienteering-icon>
+        <orienteering-icon
+          slot="appearance"
+          name="linear_thicket"
+        ></orienteering-icon>
+        <orienteering-icon
+          slot="location"
+          name="north_west_corner_inside"
+        ></orienteering-icon>
+      </control-description>
+      <control-description code="63">
+        <orienteering-icon slot="feature" name="building"></orienteering-icon>
+        <orienteering-icon
+          slot="location"
+          name="south_corner_outside"
+        ></orienteering-icon>
+      </control-description>
+      <control-description code="37">
+        <orienteering-icon
+          slot="feature"
+          name="linear_thicket"
+        ></orienteering-icon>
+        <orienteering-icon
+          slot="location"
+          name="north_east_corner_outside"
+        ></orienteering-icon>
+      </control-description>
+      <special-instruction>
+        <orienteering-icon
+          slot="left"
+          name="control_point_right_arrow"
+        ></orienteering-icon>
+        <orienteering-icon
+          slot="right"
+          name="finish_left_arrow"
+        ></orienteering-icon>
+        160&thinsp;m
+      </special-instruction>
+    </control-description-sheet>
   </body>
 </html>
