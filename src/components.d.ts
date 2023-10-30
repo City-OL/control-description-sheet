@@ -6,56 +6,79 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface ControlDescription {
+        "code": string;
+    }
+    interface ControlDescriptionSheet {
+    }
+    interface CourseHeading {
+        "climb"?: string;
+        "length"?: string;
+        "number"?: string;
+    }
+    interface SpecialInstruction {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLControlDescriptionElement extends Components.ControlDescription, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLControlDescriptionElement: {
+        prototype: HTMLControlDescriptionElement;
+        new (): HTMLControlDescriptionElement;
+    };
+    interface HTMLControlDescriptionSheetElement extends Components.ControlDescriptionSheet, HTMLStencilElement {
+    }
+    var HTMLControlDescriptionSheetElement: {
+        prototype: HTMLControlDescriptionSheetElement;
+        new (): HTMLControlDescriptionSheetElement;
+    };
+    interface HTMLCourseHeadingElement extends Components.CourseHeading, HTMLStencilElement {
+    }
+    var HTMLCourseHeadingElement: {
+        prototype: HTMLCourseHeadingElement;
+        new (): HTMLCourseHeadingElement;
+    };
+    interface HTMLSpecialInstructionElement extends Components.SpecialInstruction, HTMLStencilElement {
+    }
+    var HTMLSpecialInstructionElement: {
+        prototype: HTMLSpecialInstructionElement;
+        new (): HTMLSpecialInstructionElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "control-description": HTMLControlDescriptionElement;
+        "control-description-sheet": HTMLControlDescriptionSheetElement;
+        "course-heading": HTMLCourseHeadingElement;
+        "special-instruction": HTMLSpecialInstructionElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface ControlDescription {
+        "code"?: string;
+    }
+    interface ControlDescriptionSheet {
+    }
+    interface CourseHeading {
+        "climb"?: string;
+        "length"?: string;
+        "number"?: string;
+    }
+    interface SpecialInstruction {
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "control-description": ControlDescription;
+        "control-description-sheet": ControlDescriptionSheet;
+        "course-heading": CourseHeading;
+        "special-instruction": SpecialInstruction;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "control-description": LocalJSX.ControlDescription & JSXBase.HTMLAttributes<HTMLControlDescriptionElement>;
+            "control-description-sheet": LocalJSX.ControlDescriptionSheet & JSXBase.HTMLAttributes<HTMLControlDescriptionSheetElement>;
+            "course-heading": LocalJSX.CourseHeading & JSXBase.HTMLAttributes<HTMLCourseHeadingElement>;
+            "special-instruction": LocalJSX.SpecialInstruction & JSXBase.HTMLAttributes<HTMLSpecialInstructionElement>;
         }
     }
 }
